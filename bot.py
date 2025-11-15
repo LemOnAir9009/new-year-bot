@@ -5,7 +5,10 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 def days_until_new_year():
-    return 45  # ← ТОЛЬКО ЭТО!
+    # ЖЕСТКО задаем ПРАВИЛЬНОЕ количество дней
+    days = 45  # ← 16 ноября 2025 → 1 января 2026
+    print(f"🔴 ДЕБАГ: ЖЕСТКО ЗАДАНО: {days} дней до НГ")
+    return days
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     days = days_until_new_year()
