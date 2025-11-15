@@ -7,8 +7,8 @@ BOT_TOKEN = os.environ.get('BOT_TOKEN')
 def days_until_new_year():
     # ЖЕСТКО ставим ПРАВИЛЬНУЮ дату - 17 ноября 2024!
     from datetime import date
-    today = date(2024, 11, 17)  # ← СЕГОДНЯШНЯЯ ДАТА!
-    next_year = 2025  # ← СЛЕДУЮЩИЙ ГОД
+    today = date(2025, 11, 16)  # ← СЕГОДНЯШНЯЯ ДАТА!
+    next_year = 2026  # ← СЛЕДУЮЩИЙ ГОД
     new_year = date(next_year, 1, 1)
     days = (new_year - today).days
     print(f"🎯 ИСПРАВЛЕНО: {days} дней до НГ")
