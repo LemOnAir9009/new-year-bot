@@ -18,9 +18,10 @@ def days_until_new_year():
     """Вычисляет количество дней до Нового Года"""
     from datetime import date
     today = date.today()
-    new_year_eve = date(today.year, 12, 31)  # 31 декабря этого года
-    days = (new_year_eve - today).days
-    print(f"🔴 ДЕБАГ: Сегодня {today}, До 31 декабря: {days} дней")
+    next_year = today.year + 1
+    new_year = date(next_year, 1, 1)  # 1 января СЛЕДУЮЩЕГО года
+    days = (new_year - today).days
+    print(f"🔴 ДЕБАГ: Сегодня {today}, До 1 января {next_year}: {days} дней")
     return days
 
 def get_new_year_info():
