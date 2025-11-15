@@ -2,7 +2,7 @@ import os
 import logging
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
-from datetime import datetime
+from datetime import date
 
 # Настройка логирования
 logging.basicConfig(
@@ -16,7 +16,6 @@ BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 def days_until_new_year():
     """Вычисляет количество дней до Нового Года"""
-    from datetime import date
     today = date.today()
     next_year = today.year + 1
     new_year = date(next_year, 1, 1)  # 1 января СЛЕДУЮЩЕГО года
