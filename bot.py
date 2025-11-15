@@ -16,9 +16,11 @@ BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 def days_until_new_year():
     """Вычисляет количество дней до Нового Года"""
-    today = date.today()
-    next_year = today.year + 1
-    new_year = date(next_year, 1, 1)  # 1 января СЛЕДУЮЩЕГО года
+    from datetime import date
+    # ПРИНУДИТЕЛЬНО ставим правильную дату!
+    today = date(2025, 11, 16)  # ← СЕГОДНЯШНЯЯ ДАТА
+    next_year = 2026  # ← СЛЕДУЮЩИЙ ГОД
+    new_year = date(next_year, 1, 1)
     days = (new_year - today).days
     print(f"🔴 ДЕБАГ: Сегодня {today}, До 1 января {next_year}: {days} дней")
     return days
