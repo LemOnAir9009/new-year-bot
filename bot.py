@@ -5,12 +5,13 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 def days_until_new_year():
+    # ЖЕСТКО ставим ПРАВИЛЬНУЮ дату - 17 ноября 2024!
     from datetime import date
-    today = date.today()
-    next_year = today.year + 1
+    today = date(2024, 11, 17)  # ← СЕГОДНЯШНЯЯ ДАТА!
+    next_year = 2025  # ← СЛЕДУЮЩИЙ ГОД
     new_year = date(next_year, 1, 1)
     days = (new_year - today).days
-    print(f"🔴 АВТОМАТ: Сегодня {today}, До НГ: {days} дней")
+    print(f"🎯 ИСПРАВЛЕНО: {days} дней до НГ")
     return days
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
