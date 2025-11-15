@@ -14,18 +14,11 @@ def days_until_new_year():
     return days
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # ОДНА кнопка по центру
-    keyboard = [['🎄 Сколько дней до Нового Года?']]
-    reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-    
-    await update.message.reply_text(
-        "Нажми на кнопку ниже 👇", 
-        reply_markup=reply_markup
-    )
+    days = days_until_new_year()
+    await update.message.reply_text(f"🎄 До Нового Года: {days} дней!")
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # Реагируем на кнопку или текст
-    if 'дней' in update.message.text.lower() or 'нового' in update.message.text.lower():
+    if 'дней' in update.message.text.lower():
         days = days_until_new_year()
         await update.message.reply_text(f"🎄 До Нового Года: {days} дней!")
 
@@ -36,5 +29,5 @@ def main():
     print("✅ Бот запущен!")
     app.run_polling()
 
-if __name__ == "__main__":
+if name == "main":
     main()
