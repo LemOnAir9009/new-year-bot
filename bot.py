@@ -20,6 +20,7 @@ def days_until_new_year():
     today = date.today()
     new_year_eve = date(today.year, 12, 31)  # 31 декабря этого года
     days = (new_year_eve - today).days
+    print(f"🔴 ДЕБАГ: Сегодня {today}, До 31 декабря: {days} дней")
     return days
 
 def get_new_year_info():
