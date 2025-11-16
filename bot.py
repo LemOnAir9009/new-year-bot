@@ -6,13 +6,13 @@ from datetime import date
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 def days_until_new_year():
-    # ЖЕСТКО ставим ПРАВИЛЬНУЮ дату - 17 ноября 2024!
-    today = date(2025, 11, 17)  # ← ИСПРАВЬ НА 2024!
-    next_year = 2026  # ← СЛЕДУЮЩИЙ ГОД
-    new_year = date(next_year, 1, 1)
-    days = (new_year - today).days
-    print(f"🎯 ИСПРАВЛЕНО: {days} дней до НГ")
-    return days
+    from datetime import date
+    start_date = date(2025, 11, 17)
+    real_today = date.today()
+    days_passed = (real_today - start_date).days
+    days_left = 45 - days_passed
+    print(f"🎯 Авто-отсчет: {days_left} дней до НГ")
+    return days_left
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     days = days_until_new_year()
